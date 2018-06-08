@@ -4,3 +4,7 @@
   <%= text_field_tag :zipcode %>
   <%= submit_tag "Search!" %>
 <% end %>
+
+<div>
+  <%= @res.body if @res %>
+</div>
