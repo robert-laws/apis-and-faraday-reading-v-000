@@ -12,7 +12,11 @@ class SearchesController < ApplicationController
     end
 
     body_hash = JSON.parse(@res.body)
-    @venues = body_hash['response']['venues']
+    if @res.success?
+      @venues = body_hash['response']['venues']
+    else
+      @error = body['meta']['errorDetail']
+    end
     render 'search'
   end
 end
